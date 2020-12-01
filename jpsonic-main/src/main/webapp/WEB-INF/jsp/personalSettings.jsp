@@ -458,6 +458,13 @@ function resetAdditionalDisplay() {
                 <form:checkbox path="showSimilar" id="showSimilar" />
                 <label for="showSimilar"><fmt:message key="personalsettings.showsimilar"/></label>
             </dd>      
+            <c:if test="${command.user.commentRole eq true}">
+                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.artist"/> / <fmt:message key="personalsettings.pages.album"/></dt>
+                <dd>
+                    <form:checkbox path="showComment" id="showComment" />
+                    <label for="showComment"><fmt:message key="personalsettings.showcomment"/></label>
+                </dd>
+            </c:if>
             <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/></dt>
             <dd>
                 <form:checkbox path="showSibling" id="showSibling" />
@@ -468,13 +475,6 @@ function resetAdditionalDisplay() {
                 <fmt:message key="personalsettings.paginationsize"/>
                 <c:import url="helpToolTip.jsp"><c:param name="topic" value="paginationsize"/></c:import>
             </dd>
-            <c:if test="${command.user.downloadRole eq true}">
-                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playqueue"/> / <fmt:message key="personalsettings.pages.video"/></dt>
-                <dd>
-                    <form:checkbox path="showDownload" id="showDownload" />
-                    <label for="showDownload"><fmt:message key="personalsettings.showdownload"/></label>
-                </dd>
-            </c:if>
             <c:if test="${command.user.coverArtRole eq true}">
                 <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/></dt>
                 <dd>
@@ -487,27 +487,6 @@ function resetAdditionalDisplay() {
                     <label for="showChangeCoverArt"><fmt:message key="personalsettings.showchangecoverart"/></label>
                 </dd>  
             </c:if>
-            <c:if test="${command.user.commentRole eq true}">
-                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.artist"/> / <fmt:message key="personalsettings.pages.album"/></dt>
-                <dd>
-                    <form:checkbox path="showComment" id="showComment" />
-                    <label for="showComment"><fmt:message key="personalsettings.showcomment"/></label>
-                </dd>
-            </c:if>
-            <c:if test="${command.user.shareRole eq true}">
-                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playqueue"/> / <fmt:message key="personalsettings.pages.video"/></dt>
-                <dd>
-                    <form:checkbox path="showShare" id="showShare" />
-                    <label for="showShare"><fmt:message key="personalsettings.showshare"/></label>
-                </dd>
-            </c:if>
-            <c:if test="${command.user.commentRole eq true}">
-                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.home"/></dt>
-                <dd>
-                    <form:checkbox path="showRate" id="showRate" />
-                    <label for="showRate"><fmt:message key="personalsettings.showrate"/></label>
-                </dd>
-            </c:if>
             <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/></dt>
             <dd>
                 <form:checkbox path="showAlbumSearch" id="showAlbumSearch" />
@@ -518,12 +497,33 @@ function resetAdditionalDisplay() {
                 <form:checkbox path="showLastPlay" id="showLastPlay" />
                 <label for="showLastPlay"><fmt:message key="personalsettings.showlastplay"/></label>
             </dd>
+            <c:if test="${command.user.commentRole eq true}">
+                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.home"/></dt>
+                <dd>
+                    <form:checkbox path="showRate" id="showRate" />
+                    <label for="showRate"><fmt:message key="personalsettings.showrate"/></label>
+                </dd>
+            </c:if>
             <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playqueue"/></dt>
             <dd>
                 <form:checkbox path="showAlbumActions" id="showAlbumActions" />
                 <label for="showAlbumActions"><fmt:message key="personalsettings.showalbumactions"/></label>
                 <c:import url="helpToolTip.jsp"><c:param name="topic" value="albumactions"/></c:import>
             </dd>
+            <c:if test="${command.user.downloadRole eq true}">
+                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playqueue"/> / <fmt:message key="personalsettings.pages.video"/></dt>
+                <dd>
+                    <form:checkbox path="showDownload" id="showDownload" />
+                    <label for="showDownload"><fmt:message key="personalsettings.showdownload"/></label>
+                </dd>
+            </c:if>
+            <c:if test="${command.user.shareRole eq true}">
+                <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playqueue"/> / <fmt:message key="personalsettings.pages.video"/></dt>
+                <dd>
+                    <form:checkbox path="showShare" id="showShare" />
+                    <label for="showShare"><fmt:message key="personalsettings.showshare"/></label>
+                </dd>
+            </c:if>
             <dt><fmt:message key="personalsettings.pages"/> : <fmt:message key="personalsettings.pages.album"/> / <fmt:message key="personalsettings.pages.playlist"/> etc</dt>
             <dd>
                 <form:checkbox path="partyModeEnabled" id="partyModeEnabled" />
